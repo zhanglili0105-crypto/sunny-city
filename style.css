@@ -1,0 +1,87 @@
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden;background:#000;font-family:"PingFang SC","Microsoft YaHei","Noto Sans CJK SC",sans-serif;color:#fff;user-select:none;-webkit-user-select:none;touch-action:none}
+#c{position:fixed;inset:0;width:100%;height:100%;display:block}
+.hidden{display:none!important}
+
+#hud{position:fixed;inset:0;pointer-events:none}
+#topright{position:absolute;top:16px;right:20px;text-align:right}
+#money{font:900 38px Impact,"Arial Black",sans-serif;color:#7ee36b;text-shadow:3px 3px 0 #0a3b0a,0 0 6px #000;letter-spacing:1px}
+#stars{margin-top:2px;font-size:30px;letter-spacing:2px}
+#stars span{color:rgba(255,255,255,.25);text-shadow:2px 2px 0 rgba(0,0,0,.5)}
+#stars span.on{color:#ffd23f;text-shadow:2px 2px 0 #6b4a00,0 0 8px #ffb300}
+#stars.flash span.on{animation:blink .5s infinite}
+@keyframes blink{50%{opacity:.25}}
+.bar{width:180px;height:12px;background:rgba(0,0,0,.55);border:2px solid #000;margin:6px 0 0 auto;border-radius:3px;overflow:hidden}
+.bar.small{width:110px;height:8px;margin:6px auto 0}
+#hpbar{height:100%;width:100%;background:linear-gradient(#ff6b6b,#d63031)}
+#carhp{height:100%;width:100%;background:linear-gradient(#74b9ff,#0984e3)}
+
+#objective{position:absolute;top:16px;left:20px;background:rgba(10,14,30,.7);border-left:5px solid #ffd23f;padding:10px 16px;max-width:360px;border-radius:4px}
+#objTitle{font-weight:900;color:#ffd23f;font-size:15px;letter-spacing:1px}
+#objText{font-size:17px;margin-top:3px}
+#objTimer{font:900 30px Impact,sans-serif;color:#fff;margin-top:4px}
+#objTimer.warn{color:#ff6b6b}
+
+#minimapWrap{position:absolute;left:20px;bottom:20px;width:200px;height:200px;border-radius:50%;box-shadow:0 0 0 4px #111,0 0 0 7px #ffd23f55,0 6px 20px rgba(0,0,0,.6);overflow:hidden;background:#222}
+#speedo{position:absolute;right:24px;bottom:24px;width:150px;text-align:center;background:rgba(10,14,30,.6);border-radius:12px;padding:10px}
+#speedVal{font:900 46px Impact,sans-serif;line-height:1}
+.unit{font-size:12px;opacity:.8}
+#hint{position:absolute;bottom:240px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,.6);padding:8px 16px;border-radius:6px;font-size:16px;opacity:0;transition:opacity .2s}
+#hint.show{opacity:1}
+#toasts{position:absolute;top:110px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px}
+.toast{background:rgba(0,0,0,.7);padding:7px 16px;border-radius:5px;font-size:16px;animation:tin .25s}
+@keyframes tin{from{opacity:0;transform:translateY(-8px)}}
+
+#banner{position:fixed;top:30%;left:0;right:0;text-align:center;pointer-events:none;animation:tin .3s}
+#bannerTitle{font:900 64px Impact,"Arial Black",sans-serif;color:#ffd23f;text-shadow:4px 4px 0 #000;letter-spacing:2px}
+#bannerSub{font-size:24px;font-weight:700;text-shadow:2px 2px 0 #000;margin-top:6px}
+#bigtext{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;font:900 110px Impact,"Arial Black",sans-serif;letter-spacing:6px;text-shadow:6px 6px 0 #000;background:rgba(0,0,0,.35);pointer-events:none}
+#bigtext.busted{color:#5aa9ff}
+#bigtext.wasted{color:#ff4d4d}
+
+#menu{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:radial-gradient(ellipse at center,rgba(255,170,60,.15),rgba(20,10,40,.65))}
+.logo{text-align:center;transform:rotate(-4deg);margin-bottom:40px}
+.logo-top{font:900 96px "PingFang SC","Microsoft YaHei",sans-serif;background:linear-gradient(#fff36b,#ff8a00 55%,#ff2d75);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(5px 5px 0 #1b0b3a);letter-spacing:8px}
+.logo-bot{font:900 54px Impact,"Arial Black",sans-serif;color:#fff;letter-spacing:14px;text-shadow:4px 4px 0 #ff2d75,8px 8px 0 #1b0b3a;margin-top:-10px}
+.logo-sub{margin-top:12px;font-size:16px;letter-spacing:4px;opacity:.9;text-shadow:1px 1px 0 #000}
+.menu-btns{display:flex;flex-direction:column;gap:12px;width:260px}
+button{font:inherit;cursor:pointer}
+.menu-btns button,.panel button{background:rgba(15,15,35,.85);color:#fff;border:2px solid #ffd23f;padding:12px 18px;font-size:20px;font-weight:800;letter-spacing:3px;border-radius:6px;transition:all .15s}
+.menu-btns button:hover,.panel button:hover{background:#ffd23f;color:#1b0b3a}
+.menu-btns button:disabled{opacity:.35;pointer-events:none}
+#saveInfo{margin-top:16px;font-size:14px;opacity:.85;text-shadow:1px 1px 0 #000}
+
+.panel{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(12,14,32,.94);border:2px solid #ffd23f;border-radius:10px;padding:24px 28px;min-width:320px;max-width:92vw;display:flex;flex-direction:column;gap:10px;z-index:5}
+.panel h2{color:#ffd23f;letter-spacing:3px;margin-bottom:4px}
+.panel table{border-collapse:collapse;font-size:15px}
+.panel td{padding:4px 12px 4px 0}
+.panel td:first-child{color:#ffd23f;font-weight:800;white-space:nowrap}
+.panel p{font-size:14px;line-height:1.6;max-width:440px;opacity:.9}
+.y{color:#ffd23f}
+#shopMoney{font:900 26px Impact,sans-serif;color:#7ee36b}
+.shoprow{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.06);padding:8px 12px;border-radius:6px}
+.shoprow .nm{flex:1}
+.shoprow .nm b{display:block;font-size:16px}
+.shoprow .nm small{opacity:.7}
+.shoprow .lv{color:#ffd23f;letter-spacing:2px}
+.shoprow button{font-size:15px!important;padding:6px 12px!important;letter-spacing:1px!important}
+
+#touch{position:fixed;inset:0;pointer-events:none}
+#touch button{pointer-events:auto;width:74px;height:74px;border-radius:50%;background:rgba(255,255,255,.18);border:2px solid rgba(255,255,255,.5);color:#fff;font-size:26px;font-weight:900}
+#touch button.small{width:58px;height:58px;font-size:18px}
+#touch button:active{background:rgba(255,210,63,.6)}
+.tleft{position:absolute;left:240px;bottom:28px;display:flex;gap:14px}
+.tright{position:absolute;right:190px;bottom:24px;display:flex;gap:10px;align-items:flex-end}
+#tPause{position:absolute;top:14px;left:50%;transform:translateX(-50%);width:50px!important;height:50px!important;font-size:16px!important}
+@media (max-width:900px){
+  #minimapWrap{width:140px;height:140px;left:12px;bottom:12px}
+  #minimap{width:140px;height:140px}
+  .tleft{left:166px;bottom:16px}
+  .tright{right:12px;bottom:110px}
+  #speedo{right:12px;bottom:12px;width:120px;padding:6px}
+  #speedVal{font-size:32px}
+  #money{font-size:28px}#stars{font-size:22px}
+  .logo-top{font-size:64px}.logo-bot{font-size:36px}
+  #bannerTitle{font-size:44px}#bigtext{font-size:70px}
+  #hint{bottom:180px}
+}

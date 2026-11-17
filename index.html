@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>阳光城 SUNNY CITY</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="c"></canvas>
+
+<div id="hud" class="hidden">
+  <div id="topright">
+    <div id="money">$0</div>
+    <div id="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+    <div class="bar"><div id="hpbar"></div></div>
+  </div>
+  <div id="objective" class="hidden">
+    <div id="objTitle"></div>
+    <div id="objText"></div>
+    <div id="objTimer"></div>
+  </div>
+  <div id="minimapWrap"><canvas id="minimap" width="200" height="200"></canvas></div>
+  <div id="speedo" class="hidden">
+    <div id="speedVal">0</div><div class="unit">km/h</div>
+    <div class="bar small"><div id="carhp"></div></div>
+  </div>
+  <div id="hint"></div>
+  <div id="toasts"></div>
+</div>
+
+<div id="banner" class="hidden"><div id="bannerTitle"></div><div id="bannerSub"></div></div>
+<div id="bigtext" class="hidden"></div>
+
+<div id="menu">
+  <div class="logo">
+    <div class="logo-top">阳光城</div>
+    <div class="logo-bot">SUNNY&nbsp;CITY</div>
+    <div class="logo-sub">低多边形开放世界 · 离线版</div>
+  </div>
+  <div class="menu-btns">
+    <button id="btnNew">新游戏</button>
+    <button id="btnContinue">继续游戏</button>
+    <button id="btnHelp">操作说明</button>
+  </div>
+  <div id="saveInfo"></div>
+</div>
+
+<div id="help" class="hidden panel">
+  <h2>操作说明</h2>
+  <table>
+    <tr><td>W / ↑</td><td>前进 / 油门</td></tr>
+    <tr><td>S / ↓</td><td>后退 / 刹车倒车</td></tr>
+    <tr><td>A D / ← →</td><td>转向</td></tr>
+    <tr><td>空格</td><td>手刹（漂移）</td></tr>
+    <tr><td>Shift</td><td>步行冲刺</td></tr>
+    <tr><td>F</td><td>上车 / 偷车 / 下车</td></tr>
+    <tr><td>E</td><td>在改装店门口打开改装店</td></tr>
+    <tr><td>Esc / P</td><td>暂停、存档</td></tr>
+  </table>
+  <p>走进<span class="y">黄色光柱</span>接主线任务，看小地图上的黄点。偷有人的车、撞行人、撞警车会被通缉；远离警车一段时间星级会下降，也可以去改装店花钱喷漆消除。被警车贴住停下会被逮捕。</p>
+  <button class="close">知道了</button>
+</div>
+
+<div id="pause" class="hidden panel">
+  <h2>暂停</h2>
+  <button id="btnResume">继续</button>
+  <button id="btnSave">保存游戏</button>
+  <button id="btnPauseHelp">操作说明</button>
+  <button id="btnQuit">返回主菜单</button>
+</div>
+
+<div id="shop" class="hidden panel">
+  <h2>🔧 阳光改装店</h2>
+  <div id="shopMoney"></div>
+  <div id="shopRows"></div>
+  <button id="btnSpray">喷漆换牌（清除通缉 + 修车） $150</button>
+  <button class="close" id="btnShopClose">离开</button>
+</div>
+
+<div id="touch" class="hidden">
+  <div class="tleft">
+    <button data-key="ArrowLeft">◀</button><button data-key="ArrowRight">▶</button>
+  </div>
+  <div class="tright">
+    <button data-press="KeyF" class="small">F</button>
+    <button data-press="KeyE" class="small">E</button>
+    <button data-key="Space" class="small">刹</button>
+    <button data-key="ArrowDown">▼</button><button data-key="ArrowUp">▲</button>
+  </div>
+  <button id="tPause" data-press="Escape">❚❚</button>
+</div>
+
+<script src="lib/three.min.js"></script>
+<script src="game.js"></script>
+</body>
+</html>
